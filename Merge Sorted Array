@@ -1,0 +1,15 @@
+class Solution {
+    public void merge(int[] nums1, int m, int[] nums2, int n) {
+        int start = m - 1;
+        int end = n - 1;
+        int index = m + n - 1;
+        while(end >= 0) {
+            if(start >= 0 && nums1[start] > nums2[end]) {
+                nums1[index--] = nums1[start--];
+            }
+            else {
+                nums1[index--] = nums2[end--];
+            }
+        }
+    }
+}
