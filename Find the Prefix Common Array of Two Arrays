@@ -1,0 +1,20 @@
+class Solution {
+    public int[] findThePrefixCommonArray(int[] A, int[] B) {
+        HashMap<Integer, Integer> map = new HashMap<>();
+        
+        int count_Array[] = new int[A.length];
+        for(int i=0; i<A.length; i++) {
+            int count = 0;
+            map.put(A[i], map.getOrDefault(A[i], 0)+1);
+            map.put(B[i], map.getOrDefault(B[i], 0)+1);
+        
+            for(Map.Entry<Integer, Integer> element: map.entrySet()) {
+                if(element.getValue() % 2 == 0) {
+                    count++;
+                }
+            }
+            count_Array[i] = count;
+        }
+        return count_Array;
+    }
+}
